@@ -1,0 +1,42 @@
+{
+  "name": "express-qs-normalise",
+  "version": "0.0.1",
+  "description": "Normalise all query strings to the same format.",
+  "main": "lib/qstring.js",
+  "scripts": {
+    "test": "mocha spec --compilers js:babel-core/register --recursive"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-eslint": "^6.0.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4",
+    "standard": "^7.1.2"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "expect",
+      "describe",
+      "it",
+      "beforeEach",
+      "afterEach",
+      "BufferedReader"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-es2015",
+      "babel-preset-stage-0"
+    ]
+  },
+  "keywords": [
+    "Express",
+    "QueryString"
+  ],
+  "author": "Sammy Isseyegh [sammyisseyegh@gmail.com]",
+  "license": "ISC"
+}
