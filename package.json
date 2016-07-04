@@ -43,10 +43,22 @@
       "babel-preset-stage-1"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bkspace/express-normalize-keys.git"
+  },
   "keywords": [
-    "Express",
-    "QueryString"
+    "express",
+    "middleware",
+    "camelCase",
+    "normalize",
+    "normalise",
+    "pascalCase",
+    "snakeCase",
+    "object",
+    "keys",
+    "converter"
   ],
   "author": "Sammy Isseyegh [sammyisseyegh@gmail.com]",
-  "license": "ISC"
+  "license": "MIT"
 }
