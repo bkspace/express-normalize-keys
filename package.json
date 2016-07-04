@@ -1,12 +1,13 @@
 {
   "name": "express-normalize-keys",
   "version": "0.0.1",
-  "description": "Normalise all query strings to the same format.",
+  "description": "Express middleware to normalise all object keys to the same format.",
   "main": "lib/normalize-keys.js",
   "scripts": {
     "test": "mocha spec --compilers js:babel-core/register --recursive",
     "build": "babel src --out-dir lib",
-    "prepublish": "npm run build"
+    "lint": "standard",
+    "prepublish": "npm run lint && npm run build"
   },
   "dependencies": {
     "change-case": "^3.0.0"
