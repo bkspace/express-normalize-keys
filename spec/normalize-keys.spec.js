@@ -137,7 +137,7 @@ describe('qstring', () => {
     })
   })
 
-  describe('normalizeKeys', () => {
+  describe('normalize', () => {
     let applyToKeysStub
     let nextSpy
     let fakeReq
@@ -155,7 +155,7 @@ describe('qstring', () => {
     it('handles no options being passed', () => {
       applyToKeysStub.returns('bar')
       fakeReq.query = {}
-      normalize.normalizeKeys()(fakeReq, {}, nextSpy)
+      normalize.normalize()(fakeReq, {}, nextSpy)
       expect(fakeReq.query).to.equal('bar')
       expect(applyToKeysStub.calledOnce).to.equal(true)
       expect(nextSpy.calledOnce).to.equal(true)
@@ -164,7 +164,7 @@ describe('qstring', () => {
     it('handles no options being passed', () => {
       applyToKeysStub.returns('bar')
       fakeReq.query = {}
-      normalize.normalizeKeys()(fakeReq, {}, nextSpy)
+      normalize.normalize()(fakeReq, {}, nextSpy)
       expect(fakeReq.query).to.equal('bar')
       expect(applyToKeysStub.calledOnce).to.equal(true)
       expect(applyToKeysStub.calledWith({}, 'camel')).to.equal(true)
@@ -175,7 +175,7 @@ describe('qstring', () => {
       applyToKeysStub.returns('bar')
       const fakeOptions = { target: 'foobar' }
       fakeReq.foobar = { foo: 'blah' }
-      normalize.normalizeKeys(fakeOptions)(fakeReq, {}, nextSpy)
+      normalize.normalize(fakeOptions)(fakeReq, {}, nextSpy)
       expect(fakeReq.foobar).to.equal('bar')
       expect(applyToKeysStub.calledOnce).to.equal(true)
       expect(applyToKeysStub.calledWith({ foo: 'blah' }, 'camel')).to.equal(true)
@@ -186,7 +186,7 @@ describe('qstring', () => {
       applyToKeysStub.returns('bar')
       const fakeOptions = { convert: 'fooCase' }
       fakeReq.query = { foo: 'dah' }
-      normalize.normalizeKeys(fakeOptions)(fakeReq, {}, nextSpy)
+      normalize.normalize(fakeOptions)(fakeReq, {}, nextSpy)
       expect(fakeReq.query).to.equal('bar')
       expect(applyToKeysStub.calledOnce).to.equal(true)
       expect(applyToKeysStub.calledWith({ foo: 'dah' }, 'fooCase')).to.equal(true)
@@ -197,7 +197,7 @@ describe('qstring', () => {
       applyToKeysStub.returns('bar')
       const fakeOptions = { convert: 'fooCase', target: 'normalizeMe' }
       fakeReq.normalizeMe = { foo: 'me' }
-      normalize.normalizeKeys(fakeOptions)(fakeReq, {}, nextSpy)
+      normalize.normalize(fakeOptions)(fakeReq, {}, nextSpy)
       expect(fakeReq.normalizeMe).to.equal('bar')
       expect(applyToKeysStub.calledOnce).to.equal(true)
       expect(applyToKeysStub.calledWith({ foo: 'me' }, 'fooCase')).to.equal(true)
@@ -223,7 +223,7 @@ describe('qstring', () => {
       }
 
       fakeReq.query = initialObject
-      normalize.normalizeKeys()(fakeReq, null, () => null)
+      normalize.normalize()(fakeReq, null, () => null)
 
       expect(fakeReq.query).to.deep.equal(expectedObject)
     })
@@ -245,7 +245,7 @@ describe('qstring', () => {
       }
 
       fakeReq.normKey = initialObject
-      normalize.normalizeKeys(options)(fakeReq, null, () => null)
+      normalize.normalize(options)(fakeReq, null, () => null)
 
       expect(fakeReq.normKey).to.deep.equal(expectedObject)
     })
@@ -267,7 +267,7 @@ describe('qstring', () => {
       }
 
       fakeReq.normKey = initialObject
-      normalize.normalizeKeys(options)(fakeReq, null, () => null)
+      normalize.normalize(options)(fakeReq, null, () => null)
 
       expect(fakeReq.normKey).to.deep.equal(expectedObject)
     })
@@ -301,7 +301,7 @@ describe('qstring', () => {
       }
 
       fakeReq.normKey = initialObject
-      normalize.normalizeKeys(options)(fakeReq, null, () => null)
+      normalize.normalize(options)(fakeReq, null, () => null)
 
       expect(fakeReq.normKey).to.deep.equal(expectedObject)
     })
@@ -363,7 +363,7 @@ describe('qstring', () => {
       }
 
       fakeReq.normKey = initialObject
-      normalize.normalizeKeys(options)(fakeReq, null, () => null)
+      normalize.normalize(options)(fakeReq, null, () => null)
 
       expect(fakeReq.normKey).to.deep.equal(expectedObject)
     })
@@ -386,7 +386,7 @@ describe('qstring', () => {
       }
 
       fakeReq.normKey = initialObject
-      normalize.normalizeKeys(options)(fakeReq, null, () => null)
+      normalize.normalize(options)(fakeReq, null, () => null)
 
       expect(fakeReq.newKey).to.deep.equal(expectedObject)
     })
@@ -398,7 +398,7 @@ describe('qstring', () => {
         convert: (str) => str + '!'
       }
 
-      normalize.normalizeKeys(options)(fakeReq, null, () => null)
+      normalize.normalize(options)(fakeReq, null, () => null)
 
       expect(fakeReq.normKey).to.deep.equal({})
       expect(fakeReq.newKey).to.deep.equal({})
@@ -413,15 +413,14 @@ describe('qstring', () => {
       expect(normalize.changeCase.snake).to.be.a('function')
     })
 
-    it('exports normalizeKeys, which returns a function', () => {
-      expect(normalize.normalizeKeys).to.be.a('function')
-      expect(normalize.normalizeKeys()).to.be.a('function')
+    it('exports normalize, which returns a function', () => {
+      expect(normalize.normalize).to.be.a('function')
+      expect(normalize.normalize()).to.be.a('function')
     })
   })
 
   // TODO: add example folder
   // TODO: write a proper README.md
-  // TODO: compile to ES6 & publish to NPM
+  // TODO: publish to NPM
   // TODO: add badges to README.md
-  // TODO: fix naming conventions
 })

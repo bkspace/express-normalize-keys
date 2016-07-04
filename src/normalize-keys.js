@@ -93,8 +93,8 @@ internals._convertKey = (key, convert) => {
  *  }
  *
  * example usage:
- *  app.use(normalizeKeys(options))
- *  app.get('/', normalizeKeys(options), (req, res) => {})
+ *  app.use(normalize(options))
+ *  app.get('/', normalize(options), (req, res) => {})
  *
  *
  * @param {Object} options - an Object of options
@@ -103,7 +103,7 @@ internals._convertKey = (key, convert) => {
  * @param {String|Function} options.convert - the function or name of function to call on each key
  * @returns {Function} - an express middleware function
  */
-internals.normalizeKeys = (options) => {
+internals.normalize = (options) => {
   options = options || {}
   options.target = options.target || 'query'
   options.convert = options.convert || 'camel'
