@@ -418,9 +418,4 @@ describe('qstring', () => {
       expect(normalize.normalize()).to.be.a('function')
     })
   })
-
-  // TODO: add example folder
-  // TODO: write a proper README.md
-  // TODO: publish to NPM
-  // TODO: add badges to README.md
 })
