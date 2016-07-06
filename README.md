@@ -1,5 +1,7 @@
 ### express-normalize-keys
 
+[![npm version](https://badge.fury.io/js/express-normalize-keys.svg)](https://badge.fury.io/js/express-normalize-keys)
+
 Takes an object or array of objects from a request parameter and normalize, recursively all keys. Uses change-case under the hood.
 
 ## Usage
