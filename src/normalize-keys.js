@@ -39,9 +39,13 @@ internals._applyToKeys = (input, convert) => {
  */
 internals._applyOnObject = (input, convert) => {
   let normalized = {}
-  for (let [key, value] of Object.entries(input)) {
-    normalized[internals._convertKey(key, convert)] = internals._applyToKeys(value, convert)
-  }
+  // for (let [key, value] of Object.entries(input)) {
+  //   normalized[internals._convertKey(key, convert)] = internals._applyToKeys(value, convert)
+  // }
+  Object.keys(input).forEach((key) => {
+    normalized[internals._convertKey(key, convert)] = internals._applyToKeys(input[key], convert)
+  })
+
   return normalized
 }
 

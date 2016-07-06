@@ -1,6 +1,6 @@
 {
   "name": "express-normalize-keys",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Express middleware to normalise all object keys to the same format.",
   "main": "lib/normalize-keys.js",
   "scripts": {
@@ -10,14 +10,12 @@
     "prepublish": "npm run lint && npm run build"
   },
   "dependencies": {
-    "change-case": "^3.0.0",
-    "babel-plugin-transform-runtime": "^6.9.0"
+    "change-case": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-eslint": "^6.0.4",
     "babel-preset-es2015": "^6.9.0",
-    "babel-preset-stage-1": "^6.5.0",
     "chai": "^3.5.0",
     "mocha": "^2.5.3",
     "sinon": "^1.17.4",
@@ -35,12 +33,8 @@
     ]
   },
   "babel": {
-    "plugins": [
-      "babel-plugin-transform-runtime"
-    ],
     "presets": [
-      "babel-preset-es2015",
-      "babel-preset-stage-1"
+      "babel-preset-es2015"
     ]
   },
   "repository": {
